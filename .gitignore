@@ -18,3 +18,7 @@ __pycache__/
 # Sistema operacional
 .DS_Store
 Thumbs.db
+
+__pycache__/
+.streamlit/secrets.toml
+.env
