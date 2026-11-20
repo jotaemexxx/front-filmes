@@ -1,12 +1,27 @@
-from app.services import filmes_service
 
-filmes = filmes_service.listar_filmes()
-generos = filmes_service.listar_generos()
+import streamlit as st
+from app.views import cadastro, relatorios
 
-print("FILMES:")
-for filme in filmes:
-    print(filme["titulo"])
+st.set_page_config(
+    page_title="Streaming",
+    page_icon="🎬",
+    layout="wide"
+)
 
-print("\nGÊNEROS:")
-for genero in generos:
-    print(genero["nome"])
+st.title("Streaming")
+
+aba_inicio, aba_cadastros, aba_relatorios = st.tabs([
+    "Início",
+    "Cadastros",
+    "Relatórios"
+])
+
+with aba_inicio:
+    st.write("Sistema de gerenciamento de filmes.")
+    st.info("Bem-vindo ao Streaming!")
+
+with aba_cadastros:
+    cadastro.render()
+
+with aba_relatorios:
+    relatorios.render()
